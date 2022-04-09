@@ -3,10 +3,11 @@ import { IProduct } from '../../Interfaces/IProduct';
 
 interface IProductProps {
     product: IProduct;
+    handleAddToCart: (product: IProduct) => () => void;
 }
 
 const Product = (props: IProductProps) => {
-    const { product } = props;
+    const { product, handleAddToCart } = props;
     return (
         <div className="Products-item">
             <img src={product.image} alt={product.title} />
@@ -17,7 +18,9 @@ const Product = (props: IProductProps) => {
                 </h2>
                 <p>{product.description}</p>
             </div>
-            <button>Comprar</button>
+            <button type="button" onClick={handleAddToCart(product)}>
+                Comprar
+            </button>
         </div>
     );
 };
