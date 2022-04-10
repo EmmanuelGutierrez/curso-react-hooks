@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import initialState from '../initialState';
 import { IBuyer } from '../Interfaces/IBuyer';
+import { IOrder } from '../Interfaces/IOrders';
 import { IProduct } from '../Interfaces/IProduct';
 
 export type initialStateType = {
     buyer: IBuyer[];
     cart: IProduct[];
+    orders: IOrder[];
     products: IProduct[];
 };
 
@@ -30,10 +32,15 @@ export const useInitialState = () => {
         setState({ ...state, buyer: [...state.buyer, payload] });
     };
 
+    const addNewOrder = (payload: IOrder) => {
+        setState({ ...state, orders: [...state.orders, payload] });
+    };
+
     return {
         state,
         addToCart,
         removeFromCart,
         addBuyer,
+        addNewOrder,
     };
 };

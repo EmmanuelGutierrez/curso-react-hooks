@@ -1,6 +1,7 @@
 import React, { createContext } from 'react';
 import { initialStateType, useInitialState } from '../hooks/useInitialState';
 import { IBuyer } from '../Interfaces/IBuyer';
+import { IOrder } from '../Interfaces/IOrders';
 import { IProduct } from '../Interfaces/IProduct';
 
 export type AppContextType = {
@@ -8,6 +9,7 @@ export type AppContextType = {
     addToCart: (payload: IProduct) => void;
     removeFromCart: (payload: IProduct) => void;
     addBuyer: (payload: IBuyer) => void;
+    addNewOrder: (payload: IOrder) => void;
 };
 
 /* const state = {
